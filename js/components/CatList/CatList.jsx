@@ -8,11 +8,19 @@ export default class CatList extends React.Component {
     render() {
       return (
         <div className="cat-list">
-          <CatItem />
-          <CatItem />
-          <CatItem />
-          <CatItem />
-          <CatItem />
+          <p> {this.props.category} </p>
+          <ul>
+            {this.props.filteredCats.map((item, index) => {
+              return (
+                <CatItem
+                  key={index}
+                  name={item.name}
+                  age={item.age}
+                  kids={item.likesKids}
+                />
+              )
+            })}
+          </ul>
         </div>
       );
     }
